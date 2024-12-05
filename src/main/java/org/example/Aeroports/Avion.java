@@ -1,6 +1,7 @@
 package org.example.Aeroports;
 
 
+import java.sql.SQLOutput;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.ArrayList;
@@ -53,7 +54,10 @@ public class Avion {
         LocalDateTime depart = vol.getDateHeureDepart();
         LocalDateTime arrivee = vol.getDateHeureArrivee();
         if (verifierDisponibilite(depart, arrivee)==true){
+            System.out.println("Avion disponible");
             vols.add(vol);
+            heureDepart.add(depart);
+            heureArrive.add(arrivee);
         }
         else{
             System.out.println("L'avion n'est pas disponibke sur ces horaires");

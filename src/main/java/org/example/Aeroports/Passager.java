@@ -24,7 +24,6 @@ public class Passager extends Personne{
         System.out.println("");
     }
     public void reserverVol(Vol vol){
-        System.out.println(vol.getNumeroVol());
         volReserve.put(vol.getNumeroVol(),vol);
         Reservation reservation = new Reservation();
         listeReservation.put(reservation.getNumeroReservation(),reservation);
@@ -47,7 +46,7 @@ public class Passager extends Personne{
         reservation.setStatut("Annulée");
     }
     public Reservation obtenirReservation(int idRes){
-        System.out.println(listeReservation);
+        System.out.println(listeReservation.toString());
         Reservation reservation = listeReservation.get(idRes);
         reservation.getInfos();
         return reservation;
