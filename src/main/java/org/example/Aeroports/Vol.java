@@ -17,7 +17,7 @@ public class Vol {
     private Pilote pilote;
     private List<PersonnelCabine> equipageCabine = new ArrayList<>();
     private List<Passager> listePassagers = new ArrayList<>();
-    private List<Reservation> listeReservations = new ArrayList<>();
+    private List<Reservation> listeReservation = new ArrayList<>();
     private static HashMap<Integer, Vol> reservations = new HashMap<>();
     private static List<Vol> listeVols= new LinkedList<>();
     public Vol(int numeroVol, String origine, String destination, LocalDateTime dateHeureDepart, LocalDateTime dateHeureArrivee) {
@@ -82,7 +82,7 @@ public class Vol {
         listePassagers.add(passager);
     }
     public void addListeReservations(Reservation reservation) {
-        listeReservations.add(reservation);
+        listeReservation.add(reservation);
     }
     public void getInfos(){
         System.out.println("Numero vol: " + numeroVol);
@@ -98,8 +98,8 @@ public class Vol {
     public void annulerVol(int idVol){
         Vol vol = reservations.get(idVol);
         vol.setEtat("Annulé");
-        for (int i=0; i<listeReservations.size(); i++){
-            Reservation reservation = listeReservations.get(i);
+        for (int i=0; i<listeReservation.size(); i++){
+            Reservation reservation = listeReservation.get(i);
             Passager passager = listePassagers.get(i);
             passager.annulerReservation(reservation.getNumeroReservation());
         }

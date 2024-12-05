@@ -41,9 +41,13 @@ public class Main {
         Avion avion = new Avion("A7050","Boeing737",220);
         avion.affecterVol(vol);
 
-        Vol vol2 = new Vol(1,"Paris","Shanghai",LocalDateTime.of(2024,12,3,13,30),LocalDateTime.of(2024,12,3,18,45));
+        Vol vol2 = new Vol(2,"Paris","Shanghai",LocalDateTime.of(2024,12,3,13,30),LocalDateTime.of(2024,12,3,18,45));
         avion.affecterVol(vol2);
+        passager.reserverVol(vol2);
+        passager.obtenirReservation(2);
 
         vol2.annulerVol(2);
+        vol2.getInfos();
+
     }
 }
