@@ -1,17 +1,31 @@
 package org.example.Aeroports;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.time.LocalDateTime;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
-
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        Personne personne = new Personne("Micky", "Paris", "0611111111");
+        personne.ObtenirInfos();
+        Passager passager = new Passager("Français",personne.getPrenom(), personne.getAdresse(), personne.getContact());
+        Pilote pilote = new Pilote( 1,  5000,1,"12/05/2004", "Maxime", "Paris", "0622222222");
+        pilote.ObtenirInfos();
+        pilote.ObtenirRole(1);
+        PersonnelCabine personnelCabine = new PersonnelCabine("Hotesse",2,"15/10/2015","Nastassia","Paris", "0633333333");
+        personnelCabine.ObtenirInfos();
+        personnelCabine.ObtenirRole(2);
+        Vol vol = new Vol(1,"Paris","Shanghai",LocalDateTime.of(2024,12,3,14,30),LocalDateTime.of(2024,12,3,17,45));
+        passager.reserverVol(vol);
+        passager.obtenirReservation(1);
+        Reservation reservation =passager.obtenirReservation(1);
+        reservation.confirmeReservation(1);
+        reservation.getStatut();
+        passager.annulerReservation(1);
+        reservation.getStatut();
+        personnelCabine.affecterVol(vol);
+        personnelCabine.obtenirVol(vol.getNumeroVol());
+        pilote.affecterVol(vol);
+        pilote.obtenirVol(vol.getNumeroVol());
+        vol.getEquipageCabine();
+        vol.getPilote();
     }
 }
