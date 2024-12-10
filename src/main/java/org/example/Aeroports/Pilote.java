@@ -29,8 +29,12 @@ public class Pilote extends Employe {
         vol.setPilote(this);
         volPilote.put(vol.getNumeroVol(),vol);
     }
-    public void obtenirVol(int NumeroVol){
+    public HashMap<Integer, Vol> obtenirVols(){
+        return volPilote;
+    }
+    public Vol obtenirVol(int NumeroVol){
         Vol vol = volPilote.get(NumeroVol);
         vol.getInfos();
+        return vol;
     }
 }
