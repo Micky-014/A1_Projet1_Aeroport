@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -48,6 +49,12 @@ class AeroportTest {
         aeroport.setDescription("Aéroport international");
         assertEquals("Aéroport international",aeroport.getDescription());
     }
+    @org.junit.jupiter.api.Test
+    void getVols(){
+        Aeroport aeroport = new Aeroport("Charles-de-Gaulle","Roissy","International");
+        ArrayList<Vol> vols = new ArrayList<>();
+       assertEquals(vols,aeroport.getVols());
+    }
 
     @org.junit.jupiter.api.Test
     void affecterVol() {
@@ -57,7 +64,9 @@ class AeroportTest {
                 "Saint-Pétersbourg",
                 LocalDateTime.of(2024,12,23,10,25),
                 LocalDateTime.of(2024,12,23,18,05));
+        ArrayList<Vol> vols = new ArrayList<>();
+        vols.add(vol);
         aeroport.affecterVol(vol);
-        assertEquals(vols,)
+        assertEquals(vols,aeroport.getVols());
     }
 }
