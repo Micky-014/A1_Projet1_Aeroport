@@ -32,6 +32,9 @@ public class Aeroport {
     public void setDescription(String description) {
         this.description = description;
     }
+    public ArrayList<Vol> getVols() {
+        return vols;
+    }
     public void affecterVol(Vol vol) {
         vols.add(vol);
     }
