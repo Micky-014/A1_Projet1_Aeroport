@@ -12,6 +12,7 @@ public class Main {
         pilote.ObtenirInfos();
         pilote.ObtenirRole(1);
 
+
         PersonnelCabine personnelCabine = new PersonnelCabine("Hotesse",2,"15/10/2015","Carine","Paris", "0633333333");
         personnelCabine.ObtenirInfos();
         personnelCabine.ObtenirRole(2);
@@ -48,6 +49,7 @@ public class Main {
 
         vol2.annulerVol(2);
         vol2.getInfos();
+
 
     }
 }

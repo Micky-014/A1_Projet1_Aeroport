@@ -35,8 +35,8 @@ public class Employe extends Personne{
     }
     public void ObtenirRole(int iD){
         for (int i = 0; i < listEmployes.size(); i++){
-            if (listEmployes.get(i).getID()==iD){
-                System.out.println("Role: "+listEmployes.get(i).getClass().getName());
+            if (listEmployes.get(i).getNumeroEmploye()==iD){
+                System.out.println("Role: "+listEmployes.get(i).getClass());
                 break;
             }
         }
