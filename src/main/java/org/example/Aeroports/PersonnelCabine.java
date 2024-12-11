@@ -23,8 +23,12 @@ public class PersonnelCabine extends Employe {    private int licence;
         vol.setEquipageCabine(equipageCabine);
         volPersonnelCabine.put(vol.getNumeroVol(),vol);
     }
-    public void obtenirVol(int NumeroVol){
+    public Vol obtenirVol(int NumeroVol){
         Vol vol = volPersonnelCabine.get(NumeroVol);
         vol.getInfos();
+        return vol;
+    }
+    public HashMap<Integer, Vol> obtenirVols() {
+        return volPersonnelCabine;
     }
 }

@@ -39,6 +39,9 @@ public class Avion {
     public void setCapacite(int capacite) {
         this.capacite = capacite;
     }
+    public List<Vol> getVols() {
+        return vols;
+    }
     public boolean verifierDisponibilite(LocalDateTime depart, LocalDateTime arrive){
         for (int i=0; i<heureDepart.size(); i++) {
             if (((depart.isAfter(heureDepart.get(i))) && (depart.isBefore(heureArrive.get(i)))) || ((arrive.isAfter(heureDepart.get(i))) && (arrive.isBefore(heureArrive.get(i))))) {
