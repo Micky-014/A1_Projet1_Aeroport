@@ -54,6 +54,9 @@ public class Vol {
     public List<PersonnelCabine> getEquipageCabine() {
         return equipageCabine;
     }
+    public List<Passager> getListePassagers() {
+        return listePassagers;
+    }
     public void setNumeroVol(int numeroVol) {
         this.numeroVol = numeroVol;
     }
@@ -105,22 +108,28 @@ public class Vol {
             passager.annulerReservation(reservation.getNumeroReservation());
         }
     }
-    public void listingPassager(){
+    public List<Passager> listingPassager(){
+        ArrayList<Passager> passagers = new ArrayList<Passager>();
         for(int i=0; i<listePassagers.size(); i++){
             Passager passager = listePassagers.get(i);
             System.out.println("Prenom :"+passager.getPrenom()+" / ID :"+passager.getID());
+            passagers.add(passager);
         }
         System.out.println("");
+        return passagers;
     }
-    public void planifierVol(LocalDate jour){
+    public List<Vol> planifierVol(LocalDate jour){
         System.out.println("Les vols prévu pour le "+jour.toString()+" sont les suivants:");
+        ArrayList<Vol> vols = new ArrayList<Vol>();
         for (int i=0; i<listeVols.size(); i++){
             Vol vol = listeVols.get(i);
             if (vol.getDateHeureDepart().toLocalDate().equals(jour)){
                 System.out.println("ID de vol : "+vol.getNumeroVol());
+                vols.add(vol);
             }
         }
         System.out.println("");
+        return vols;
     }
     public void modifierVol(int numeroVol, String origine, String destination, LocalDateTime dateHeureDepart, LocalDateTime dateHeureArrivee, String etat){
         this.setNumeroVol(numeroVol);

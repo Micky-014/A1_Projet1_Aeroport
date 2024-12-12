@@ -3,6 +3,7 @@ package org.example.Aeroports;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -232,9 +233,23 @@ class VolTest {
         cuisinier.affecterVol(vol);
         assertEquals(equipageCabine, vol.getEquipageCabine());
     }
+    @Test
+    void getListePasagers(){
+        Vol vol = new Vol(1256,
+                "Charles-de-Gaulle",
+                "Rome",
+                LocalDateTime.of(2024,12,23,10,25),
+                LocalDateTime.of(2024,12,23,18,05));
+        assert(vol.getListePassagers().isEmpty());
+    }
 
     @Test
     void addListePassagers() {
+        Vol vol = new Vol(1256,
+                "Charles-de-Gaulle",
+                "Rome",
+                LocalDateTime.of(2024,12,23,10,25),
+                LocalDateTime.of(2024,12,23,18,05));
         Passager passager1 = new Passager("AB123456C",
                 "Nastassia",
                 "12 Rue de Vanves",
@@ -243,8 +258,13 @@ class VolTest {
                 "Alexis",
                 "12 Rue de Vanves",
                 "0600000000");
-
-
+        List<Passager> listePassagers = new ArrayList<>();
+        listePassagers.add(passager1);
+        vol.addListePassagers(passager1);
+        assertEquals(listePassagers, vol.getListePassagers());
+        listePassagers.add(passager2);
+        vol.addListePassagers(passager2);
+        assertEquals(listePassagers, vol.getListePassagers());
     }
 
     @Test
@@ -257,13 +277,92 @@ class VolTest {
 
     @Test
     void listingPassager() {
+        Vol vol = new Vol(1256,
+                "Charles-de-Gaulle",
+                "Rome",
+                LocalDateTime.of(2024,12,23,10,25),
+                LocalDateTime.of(2024,12,23,18,05));
+        Passager passager1 = new Passager("AB123456C",
+                "Nastassia",
+                "12 Rue de Vanves",
+                "0600000000");
+        Passager passager2 = new Passager("DE789123F",
+                "Alexis",
+                "12 Rue de Vanves",
+                "0600000000");
+        List<Passager> listePassagers = new ArrayList<>();
+        listePassagers.add(passager1);
+        vol.addListePassagers(passager1);
+        listePassagers.add(passager2);
+        vol.addListePassagers(passager2);
+        assertEquals(listePassagers, vol.listingPassager());
     }
 
     @Test
     void planifierVol() {
+        Vol vol1 = new Vol(1,
+                "Charles-de-Gaulle",
+                "Rome",
+                LocalDateTime.of(2024,1,23,10,25),
+                LocalDateTime.of(2024,1,23,18,05));
+        Vol vol2 = new Vol(2,
+                "Charles-de-Gaulle",
+                "Rome",
+                LocalDateTime.of(2024,1,23,10,25),
+                LocalDateTime.of(2024,1,23,18,05));
+        Vol vol3 = new Vol(3,
+                "Charles-de-Gaulle",
+                "Rome",
+                LocalDateTime.of(2024,2,24,10,25),
+                LocalDateTime.of(2024,2,24,18,05));
+        Vol vol4 = new Vol(4,
+                "Charles-de-Gaulle",
+                "Rome",
+                LocalDateTime.of(2024,2,24,10,25),
+                LocalDateTime.of(2024,2,24,18,05));
+        Vol vol5 = new Vol(5,
+                "Charles-de-Gaulle",
+                "Rome",
+                LocalDateTime.of(2024,3,25,10,25),
+                LocalDateTime.of(2024,3,25,18,05));
+        Vol vol6 = new Vol(6,
+                "Charles-de-Gaulle",
+                "Rome",
+                LocalDateTime.of(2024,2,24,10,25),
+                LocalDateTime.of(2024,2,24,18,05));
+        ArrayList<Vol> vols1 = new ArrayList<Vol>();
+        ArrayList<Vol> vols2 = new ArrayList<Vol>();
+        ArrayList<Vol> vols3 = new ArrayList<Vol>();
+        vols1.add(vol1);
+        vols1.add(vol2);
+        vols2.add(vol3);
+        vols2.add(vol4);
+        vols3.add(vol5);
+        vols2.add(vol6);
+        assertEquals(vol1.planifierVol(LocalDate.of(2024,1,23)),vols1);
+        assertEquals(vol2.planifierVol(LocalDate.of(2024,2,24)),vols2);
+        assertEquals(vol3.planifierVol(LocalDate.of(2024,3,25)),vols3);
+
     }
 
     @Test
     void modifierVol() {
+        Vol vol1 = new Vol(1,
+                "Charles-de-Gaulle",
+                "Rome",
+                LocalDateTime.of(2024,1,23,10,25),
+                LocalDateTime.of(2024,1,23,18,05));
+        vol1.modifierVol(2,
+                "Orly",
+                "Héraklion",
+                LocalDateTime.of(2024,2,23,10,25),
+                LocalDateTime.of(2024,2,23,18,05),
+                "En attente");
+        assertEquals(vol1.getNumeroVol(),2);
+        assertEquals(vol1.getOrigine(),"Orly");
+        assertEquals(vol1.getDestination(),"Héraklion");
+        assertEquals(vol1.getDateHeureDepart(),LocalDateTime.of(2024,2,23,10,25));
+        assertEquals(vol1.getDateHeureArrivee(),LocalDateTime.of(2024,2,23,18,05));
+        assertEquals(vol1.getEtat(),"En attente");
     }
 }
