@@ -235,6 +235,16 @@ class VolTest {
 
     @Test
     void addListePassagers() {
+        Passager passager1 = new Passager("AB123456C",
+                "Nastassia",
+                "12 Rue de Vanves",
+                "0600000000");
+        Passager passager2 = new Passager("DE789123F",
+                "Alexis",
+                "12 Rue de Vanves",
+                "0600000000");
+
+
     }
 
     @Test
