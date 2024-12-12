@@ -102,9 +102,17 @@ class ReservationTest {
 
     @Test
     void annulerReservation() {
+        Reservation reservation = new Reservation(30);
+        assertEquals(reservation.getStatut(),"En attente de confirmation");
+        reservation.annulerReservation(30);
+        assertEquals(reservation.getStatut(),"Annulée");
     }
 
     @Test
     void confirmeReservation() {
+        Reservation reservation = new Reservation(30);
+        assertEquals(reservation.getStatut(),"En attente de confirmation");
+        reservation.confirmeReservation(30);
+        assertEquals(reservation.getStatut(),"Confirmée");
     }
 }

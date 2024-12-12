@@ -16,12 +16,13 @@ public class Reservation {
         this.numeroReservation = setNumeroReservation();
         setDateReservation();
         this.statut = "En attente de confirmation";
-        listeReservations.put(numRes, this);
+        listeReservations.put(numeroReservation, this);
     }
     public Reservation (int numeroReservation) {
         this.numeroReservation = numeroReservation;
         this.dateReservation = LocalDate.of(2024,12,10);
         this.statut = "En attente de confirmation";
+        listeReservations.put(numeroReservation, this);
     }
     public int getNumeroReservation() {
         return numeroReservation;
