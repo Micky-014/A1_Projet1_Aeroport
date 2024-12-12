@@ -84,6 +84,7 @@ public class Vol {
     public void addListeReservations(Reservation reservation) {
         listeReservation.add(reservation);
     }
+
     public void getInfos(){
         System.out.println("Numero vol: " + numeroVol);
         System.out.println("Origine: " + origine);
