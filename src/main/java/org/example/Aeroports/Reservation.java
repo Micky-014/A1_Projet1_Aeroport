@@ -20,7 +20,7 @@ public class Reservation {
     }
     public Reservation (int numeroReservation) {
         this.numeroReservation = numeroReservation;
-        setDateReservation();
+        this.dateReservation = LocalDate.of(2024,12,10);
         this.statut = "En attente de confirmation";
     }
     public int getNumeroReservation() {
@@ -53,8 +53,11 @@ public class Reservation {
     public void addResVol(Vol vol){
         resVol.put(this,vol);
     }
+    public HashMap<Reservation,Vol> recupererResVol(){
+        return resVol;
+    }
     public void suprimerResVol(Vol vol){
-        reservations.remove(this);
+        reservations.remove(vol);
     }
     public void getInfos(){
         Vol vol = getResVol();
@@ -68,5 +71,8 @@ public class Reservation {
     }
     public void confirmeReservation(int numero) {
         listeReservations.get(numero).setStatut("Confirmée");
+    }
+    public ArrayList<Vol> getReservations() {
+        return reservations;
     }
 }
