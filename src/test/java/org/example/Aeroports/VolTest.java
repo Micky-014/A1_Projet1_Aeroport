@@ -269,6 +269,17 @@ class VolTest {
 
     @Test
     void addListeReservations() {
+        Vol vol = new Vol(1256,
+                "Charles-de-Gaulle",
+                "Rome",
+                LocalDateTime.of(2024,12,23,10,25),
+                LocalDateTime.of(2024,12,23,18,05));
+        Reservation reservation = new Reservation(1);
+        assert(vol.getListeReservation().isEmpty());
+        vol.addListeReservations(reservation);
+        List<Reservation> listeReservation = new ArrayList<>();
+        listeReservation.add(reservation);
+        assertEquals(listeReservation,vol.getListeReservation());
     }
 
     @Test

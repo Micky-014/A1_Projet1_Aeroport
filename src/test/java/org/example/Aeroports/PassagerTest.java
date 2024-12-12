@@ -70,6 +70,18 @@ class PassagerTest {
 
     @Test
     void confirmerReservation() {
+        Passager passager = new Passager("AB123456C",
+                "Nastassia",
+                "12 Rue de Vanves",
+                "0600000000");
+        Vol vol = new Vol(1256,
+                "Charles-de-Gaulle",
+                "Rome",
+                LocalDateTime.of(2024,12,23,10,25),
+                LocalDateTime.of(2024,12,23,18,05));
+        passager.reserverVol(vol);
+        passager.confirmerReservation(1);
+        assertEquals("Confirmé",passager.obtenirReservation(1).getStatut());
     }
 
     @Test

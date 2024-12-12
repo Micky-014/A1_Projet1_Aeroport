@@ -57,6 +57,9 @@ public class Vol {
     public List<Passager> getListePassagers() {
         return listePassagers;
     }
+    public List<Reservation> getListeReservation() {
+        return listeReservation;
+    }
     public void setNumeroVol(int numeroVol) {
         this.numeroVol = numeroVol;
     }
