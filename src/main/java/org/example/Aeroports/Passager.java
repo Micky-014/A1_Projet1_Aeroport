@@ -18,6 +18,12 @@ public class Passager extends Personne{
     public void setPasseport(String passeport) {
         this.passeport = passeport;
     }
+    public HashMap<Integer,Vol> getVolReserve() {
+        return volReserve;
+    }
+    public HashMap<Integer,Reservation> getListeReservation() {
+        return listeReservation;
+    }
     public void ObtenirInfos(){
         super.ObtenirInfos();
         System.out.println("Passeport: " + passeport);
@@ -43,7 +49,7 @@ public class Passager extends Personne{
     }
     public void confirmerReservation(int idRes){
         Reservation reservation = listeReservation.get(idRes);
-        reservation.setStatut("Annulée");
+        reservation.setStatut("Confirmé");
     }
     public Reservation obtenirReservation(int idRes){
         System.out.println(listeReservation.toString());

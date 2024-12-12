@@ -18,6 +18,11 @@ public class Reservation {
         this.statut = "En attente de confirmation";
         listeReservations.put(numRes, this);
     }
+    public Reservation (int numeroReservation) {
+        this.numeroReservation = numeroReservation;
+        setDateReservation();
+        this.statut = "En attente de confirmation";
+    }
     public int getNumeroReservation() {
         return numeroReservation;
     }
