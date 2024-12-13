@@ -40,12 +40,12 @@ public class Passager extends Personne{
     }
     public void annulerReservation(int idRes){
         Reservation reservation = listeReservation.get(idRes);
-        listeReservation.remove(idRes);
         Vol vol =reservation.getResVol();
         volReserve.remove(vol.getNumeroVol());
         reservation.suprimerResVol(vol);
         reservation.suprimerVol(vol);
         reservation.annulerReservation(idRes);
+        listeReservation.remove(idRes);
     }
     public void confirmerReservation(int idRes){
         Reservation reservation = listeReservation.get(idRes);
