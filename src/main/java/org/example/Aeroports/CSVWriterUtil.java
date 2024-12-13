@@ -4,12 +4,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 import java.time.format.DateTimeFormatter;
 
 public class CSVWriterUtil {
 
-    public static void writeReservations(String filePath, List<Reservation> reservations) throws IOException {
+    public static void writeReservations(String filePath, ArrayList<Reservation> reservations) throws IOException {
         try (FileWriter writer = new FileWriter(filePath)) {
             // En-tête
             writer.append("NumeroReservation,DateReservation,Statut,NumeroVol\n");

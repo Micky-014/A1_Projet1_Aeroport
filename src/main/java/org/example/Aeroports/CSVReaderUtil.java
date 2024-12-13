@@ -15,6 +15,7 @@ public class CSVReaderUtil {
     // Lire les données des vols
     public static List<Vol> readVols(String filePath) throws IOException {
         List<Vol> vols = new ArrayList<>();
+        DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line = reader.readLine(); // Lire l'en-tête
             while ((line = reader.readLine()) != null) {
@@ -22,6 +23,7 @@ public class CSVReaderUtil {
                 int numeroVol = Integer.parseInt(columns[0]);
                 String origine = columns[1];
                 String destination = columns[2];
+                DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
                 LocalDateTime dateHeureDepart = LocalDateTime.parse(columns[3], dateTimeFormatter);
                 LocalDateTime dateHeureArrivee = LocalDateTime.parse(columns[4], dateTimeFormatter);
                 String etat = columns[5];
@@ -38,6 +40,7 @@ public class CSVReaderUtil {
     // Lire les données des passagers
     public static List<Passager> readPassagers(String filePath) throws IOException {
         List<Passager> passagers = new ArrayList<>();
+        DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line = reader.readLine(); // Lire l'en-tête
             while ((line = reader.readLine()) != null) {
@@ -58,6 +61,7 @@ public class CSVReaderUtil {
     // Lire les données des pilotes
     public static List<Pilote> readPilotes(String filePath) throws IOException {
         List<Pilote> pilotes = new ArrayList<>();
+        DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line = reader.readLine(); // Lire l'en-tête
             while ((line = reader.readLine()) != null) {
@@ -80,6 +84,7 @@ public class CSVReaderUtil {
     // Lire les données des avions
     public static List<Avion> readAvions(String filePath) throws IOException {
         List<Avion> avions = new ArrayList<>();
+        DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line = reader.readLine(); // Lire l'en-tête
             while ((line = reader.readLine()) != null) {
@@ -98,6 +103,7 @@ public class CSVReaderUtil {
     // Lire les données des aéroports
     public static List<Aeroport> readAeroports(String filePath) throws IOException {
         List<Aeroport> aeroports = new ArrayList<>();
+        DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line = reader.readLine(); // Lire l'en-tête
             while ((line = reader.readLine()) != null) {

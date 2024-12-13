@@ -12,17 +12,22 @@ public class Reservation {
     private static HashMap<Integer,Reservation> listeReservations = new HashMap<Integer,Reservation>();
     private static HashMap<Reservation,Vol> resVol = new HashMap<Reservation,Vol>();
     private static ArrayList<Vol> reservations = new ArrayList<>();
+    private static ArrayList<Reservation> listeAEcrire = new ArrayList<>();
     public Reservation() {
         this.numeroReservation = setNumeroReservation();
         setDateReservation();
         this.statut = "En attente de confirmation";
         listeReservations.put(numeroReservation, this);
+        listeAEcrire.add(this);
     }
     public Reservation (int numeroReservation) {
         this.numeroReservation = numeroReservation;
         this.dateReservation = LocalDate.of(2024,12,10);
         this.statut = "En attente de confirmation";
         listeReservations.put(numeroReservation, this);
+    }
+    public static ArrayList<Reservation> getListeAEcrire() {
+        return listeAEcrire;
     }
     public int getNumeroReservation() {
         return numeroReservation;
