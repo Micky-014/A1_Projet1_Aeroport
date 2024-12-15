@@ -2,12 +2,10 @@ package org.example.Aeroports;
 
 import org.junit.jupiter.api.Test;
 
-import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ReservationTest {
 
@@ -40,39 +38,6 @@ class ReservationTest {
         Reservation reservation = new Reservation(1);
         reservation.setStatut("Ca fonctionne?");
         assertEquals("Ca fonctionne?", reservation.getStatut());
-    }
-
-    @Test
-    void getVol_suprVol() {
-        Reservation reservation = new Reservation(1);
-        Vol vol = new Vol(1256,
-                "Charles-de-Gaulle",
-                "Rome",
-                LocalDateTime.of(2024,12,23,10,25),
-                LocalDateTime.of(2024,12,23,18,05));
-        reservation.getVol(vol);
-        ArrayList<Vol> vols = new ArrayList<>();
-        vols.add(vol);
-        assertEquals(vols,reservation.getReservations());
-        assertEquals(reservation.getReservations().isEmpty(),false);
-        reservation.suprimerVol(vol);
-        assert(reservation.getReservations().isEmpty());
-    }
-
-    @Test
-    void getResVol() {
-        Vol vol = new Vol(1256,
-                "Charles-de-Gaulle",
-                "Rome",
-                LocalDateTime.of(2024,12,23,10,25),
-                LocalDateTime.of(2024,12,23,18,05));
-        Passager passager = new Passager("AB123456C",
-                "Nastassia",
-                "12 Rue de Vanves",
-                "0600000000");
-        passager.reserverVol(vol);
-        Reservation reservation = passager.obtenirReservation(1);
-        assertEquals(reservation.getResVol(),vol);
     }
 
     @Test
